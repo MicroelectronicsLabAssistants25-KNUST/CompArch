@@ -6,7 +6,7 @@
 #include <vector>
 #include "cache.h"
 
-// 7z x -so art.trace.gz | cache0 -s 16 -a 1 -l 16 -mp 30
+// 7z x -so art.trace.gz | cacheSim -s 16 -a 1 -l 16 -mp 30
 
 // Global variables for default cache configuration
 int associativity = 2;          // Associativity of cache
