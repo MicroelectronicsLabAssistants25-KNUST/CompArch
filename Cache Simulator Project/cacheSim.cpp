@@ -1,3 +1,5 @@
+// Same Copy
+
 #include <iostream> // For input and output
 #include <iomanip>  // For formatted output (e.g., floating-point precision)
 #include <cstdlib>  // For atoi
