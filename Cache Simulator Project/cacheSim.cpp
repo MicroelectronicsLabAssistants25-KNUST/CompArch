@@ -18,7 +18,7 @@ int miss_penalty = 30;          // Miss penalty in cycles
 
 // Function to display usage information
 void print_usage() {
-    std::cout << "Usage: gunzip2 -c <tracefile> | ./cache -a assoc -l blksz -s size -mp mispen\n";
+    std::cout << "Usage: 7z x -so <tracefile> | ./cache -a assoc -l blksz -s size -mp mispen\n";
     std::cout << "  tracefile : The memory trace file\n";
     std::cout << "  -a assoc : The associativity of the cache\n";
     std::cout << "  -l blksz : The blocksize (in bytes) of the cache\n";
@@ -34,9 +34,10 @@ int main(int argc, char* argv[]) {
     char marker;
 
     int i = 0; // Counter for tracking memory accesses
-    // for (int i = 0; i < argc; i++) {
-    //     std::cout << "Argument " << i << ": " << argv[i] << std::endl;
-    // }
+    std::cout << "argc = " << argc << std::endl;
+    for (int i = 0; i < argc; i++) {
+        std::cout << "Argument " << i << ": " << argv[i] << std::endl;
+    }
     // Process command-line arguments
     for (int j = 1; j < argc; ++j) {
         if (strcmp("-a", argv[j]) == 0) {
