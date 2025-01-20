@@ -1,1 +1,1 @@
-  Cache cache(associativity, blocksize_bytes, cachesize_kb, miss_penalty);
+7z x -so art.trace.gz | cacheSim -s 64 -a 2 -l 32 -mp 30

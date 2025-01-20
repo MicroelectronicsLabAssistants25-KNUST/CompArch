@@ -1,4 +1,4 @@
-// Same Copy
+// class definition for the Cache class
 
 
 #include <iostream>
@@ -63,9 +63,9 @@ public:
     cache_data.resize(num_sets, std::vector<Cache_block>(associativity));
   }
 
-  std::vector<std::vector<Cache_block>> get_cache_data() {
-    return cache_data;
-  }
+  // std::vector<std::vector<Cache_block>> get_cache_data() {
+  //   return cache_data;
+  // }  //irrelevant getter
 
   void memory_access(int loadstore, long address, int icount) {
     memory_accesses++;
@@ -75,6 +75,9 @@ public:
     // Extract tag and index from address
     long tag = address >> (block_offset_bits + index_bits);
     int index = (address >> block_offset_bits) & ((1 << index_bits) - 1);
+    //(address << (64 - (block_offset_bits + index_bits)) >> (64 - index_bits));
+
+    // Check for hit or miss    
 
     bool hit = false;
     int way = -1;
@@ -94,11 +97,13 @@ public:
 
       if (loadstore == 0) { // Load hit
         load_hits++;
-      } else { // Store hit
+      } 
+      else { // Store hit
         store_hits++;
         cache_data[index][way].dirty = true;
       }
-    } else {
+    } 
+    else {
       // Handle miss
       if (loadstore == 0) { // Load miss
         load_misses++;
